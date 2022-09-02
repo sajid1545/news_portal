@@ -41,6 +41,8 @@ displayCategories();
 // loading categories data from https://openapi.programming-hero.com/api/news/category/01
 
 let loadCategoriesDataById = (id) => {
+	toggleLoader(true);
+
 	let url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
 	fetch(url)
@@ -54,6 +56,8 @@ let loadCategoriesDataById = (id) => {
 // displaying new in web page
 
 let displayCategoriesNews = async (news) => {
+	toggleLoader(true);
+
 	let displayNewsContainer = document.getElementById('display-news-container');
 	displayNewsContainer.innerHTML = '';
 
@@ -126,6 +130,7 @@ let displayCategoriesNews = async (news) => {
 	        </div>
 	        `;
 		displayNewsContainer.appendChild(newsDiv);
+		toggleLoader(false);
 	});
 };
 
@@ -154,4 +159,15 @@ let displayingNewsDetail = (details) => {
         <p class="py-4">${details.details}
         </p>
     `;
+};
+
+// Spinner toggle function
+
+let toggleLoader = (isLoading) => {
+	let loader = document.getElementById('loader');
+	if (isLoading) {
+		loader.classList.remove('hidden');
+	} else {
+		loader.classList.add('hidden');
+	}
 };
