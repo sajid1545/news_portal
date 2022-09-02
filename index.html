@@ -25,7 +25,7 @@
         <section>
             <div class="navbar bg-blue-100 text-purple-700">
                 <div class="flex-1">
-                    <a class="btn btn-ghost normal-case text-xl">CBS News</a>
+                    <a class="btn btn-ghost normal-case text-2xl font-bold">CBS News</a>
                 </div>
                 <div class="flex-none">
 
@@ -70,14 +70,17 @@
 
         <!-- Categories Item found section -->
         <section>
-            <div id="total-categories-item"></div>
+            <div id="total-categories-item">
+
+            </div>
         </section>
 
         <!-- Sort by view section -->
 
         <section class="w-11/12 mx-auto my-10">
-            <div class="flex justify-between items-center">
-                <div class="">
+            <div
+                class="flex justify-between items-center flex-col sm:flex-row text-center space-y-3 sm:space-y-0 sm:text-left">
+                <div>
                     <label for="">Sort by view:</label>
                     <select class="select select-error w-6/12">
                         <option disabled selected>Default</option>
@@ -87,9 +90,9 @@
                         <option>Sanity</option>
                     </select>
                 </div>
-                <div class="space-x-4">
-                    <button class="btn btn-primary px-14">Button</button>
-                    <button class="btn btn-outline btn-primary px-14">Button</button>
+                <div class="space-x-4 space-y-4 sm:space-y-0">
+                    <button class="btn btn-primary px-14">Today's Pick</button>
+                    <button class="btn btn-outline btn-primary px-14">Trending</button>
                 </div>
             </div>
         </section>

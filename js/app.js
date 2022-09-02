@@ -52,7 +52,8 @@ let loadCategoriesDataById = (id) => {
 			console.log(error);
 		});
 };
-// displaying new in web page
+
+// displaying news in web page
 
 let displayCategoriesNews = async (news) => {
 	toggleLoader(true);
@@ -65,15 +66,15 @@ let displayCategoriesNews = async (news) => {
 	let totalNumberOfNews = document.getElementById('total-categories-item');
 	totalNumberOfNews.classList.add('bg-white', 'text-2xl', 'text-black', 'text-center');
 	totalNumberOfNews.innerHTML = `
-    <div class=" p-3 my-10">
+    <div class="p-3 my-10">
     ${news.length} items found for category
     </div>
     `;
+
 	// sorting views
 	news.sort((a, b) => b.total_view - a.total_view);
 
 	news.forEach((newsItem) => {
-		console.log(newsItem);
 		let newsDiv = document.createElement('div');
 		newsDiv.innerHTML = `
 	        <div class="card flex sm:flex-row p-4 bg-white shadow-xl my-5 ">
@@ -171,6 +172,8 @@ let toggleLoader = (isLoading) => {
 	}
 };
 
+// ======================================== Blog page scripts =====================================
+
 // blog onclick event
 
 let blogPage = () => {
@@ -181,6 +184,8 @@ let blogInfo = () => {
 	let blogSection = document.getElementById('blog-section');
 	blogSection.innerHTML = `
     <div class="space-y-5">
+
+
     <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
     <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
       Difference Between var, let and const
@@ -194,41 +199,41 @@ let blogInfo = () => {
       </p>
     </div>
   </div>
-  
-      <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
     <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
-      Difference Between Arrow and Regular Function
+    Difference between arrow function and normal function
     </div>
-    <div class="collapse-content mx-3 text-2xl pt-3"> 
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+      <p>Both regular JavaScript functions and arrow functions work in a similar manner but there are some differences between them.The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the value of this depends on how the function was invoked.On the other hand, an arrow function does not define its own execution context. This results in an arrow function's this being resolved lexically.
+      </p>
+    </div>
+  </div>
+
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+    Difference between map filter find and foreach
+    </div>
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
       <p>
-      
+      The main difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. map() loop through the elements allocates memory and stores return values by iterating main array.find: Return the first element which satisfies the condition.
       </p>
     </div>
   </div>
-  
-      <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
     <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
-      Difference Between var, let and const
+    Why should we use template string
     </div>
-    <div class="collapse-content mx-3 text-2xl pt-3"> 
-      <p>Variables declared with var are in the function scope.
-      Variables declared as let are in the block scope.
-      Variables declared as const are in the block scope.
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+      <p>
+      Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.
       </p>
     </div>
   </div>
-  
-      <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
-    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
-      Difference Between var, let and const
-    </div>
-    <div class="collapse-content mx-3 text-2xl pt-3"> 
-      <p>Variables declared with var are in the function scope.
-      Variables declared as let are in the block scope.
-      Variables declared as const are in the block scope.
-      </p>
-    </div>
-  </div>
+ 
+
+
     </div>
     `;
 };
