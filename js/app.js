@@ -171,3 +171,10 @@ let toggleLoader = (isLoading) => {
 		loader.classList.add('hidden');
 	}
 };
+
+// blog onclick event
+
+let blogPage = () => {
+	let blogPage = document.getElementById('blog-page');
+	window.location.href = 'blogs.html';
+};
