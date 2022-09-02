@@ -16,7 +16,7 @@ let loadCategories = async () => {
 let displayCategories = async () => {
 	let categories = await loadCategories();
 	let categoriesContainer = document.getElementById('categories-container');
-	categoriesContainer.innerHTML = '';
+	// categoriesContainer.innerHTML = '';
 
 	categories.forEach((category) => {
 		let categoryDiv = document.createElement('div');
@@ -52,7 +52,6 @@ let loadCategoriesDataById = (id) => {
 			console.log(error);
 		});
 };
-
 // displaying new in web page
 
 let displayCategoriesNews = async (news) => {
@@ -121,7 +120,7 @@ let displayCategoriesNews = async (news) => {
 	                    </div>
 
 	                    <div onclick="newModalNewDetail('${newsItem._id}')">
-                        <label for="my-modal-3" class="btn modal-button btn-outline btn-accent">Read More</label>
+                        <label for="my-modal-3" class="btn modal-button btn-outline btn-accent px-10  py-2">Read More</label>
 	                    </div>
 
 	                </div>
@@ -181,14 +180,56 @@ let blogPage = () => {
 let blogInfo = () => {
 	let blogSection = document.getElementById('blog-section');
 	blogSection.innerHTML = `
+    <div class="space-y-5">
     <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
-  <div class="collapse-title text-4xl font-bold border-amber-300">
-    Difference Between var, let and const
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+      Difference Between var, let and const
+    </div>
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+      <p>Variables declared with var are in the function scope.
+      Variables declared as let are in the block scope.
+      Variables declared as const are in the block scope.
+      While variables declared with var are hoisted to the enclosing scope, variables declared with let or const are not initialized until their definition is evaluated.
+      At the top level, variables declared with var, unlike ones declared with let or const, create a property on the global object.
+      </p>
+    </div>
   </div>
-  <div class="collapse-content"> 
-    <p>tabindex="0" attribute is necessary to make the div focusable</p>
+  
+      <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+      Difference Between Arrow and Regular Function
+    </div>
+    <div class="collapse-content mx-3 text-2xl pt-3"> 
+      <p>
+      
+      </p>
+    </div>
   </div>
-</div>
+  
+      <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+      Difference Between var, let and const
+    </div>
+    <div class="collapse-content mx-3 text-2xl pt-3"> 
+      <p>Variables declared with var are in the function scope.
+      Variables declared as let are in the block scope.
+      Variables declared as const are in the block scope.
+      </p>
+    </div>
+  </div>
+  
+      <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+      Difference Between var, let and const
+    </div>
+    <div class="collapse-content mx-3 text-2xl pt-3"> 
+      <p>Variables declared with var are in the function scope.
+      Variables declared as let are in the block scope.
+      Variables declared as const are in the block scope.
+      </p>
+    </div>
+  </div>
+    </div>
     `;
 };
 blogInfo();
