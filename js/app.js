@@ -178,3 +178,17 @@ let blogPage = () => {
 	let blogPage = document.getElementById('blog-page');
 	window.location.href = 'blogs.html';
 };
+let blogInfo = () => {
+	let blogSection = document.getElementById('blog-section');
+	blogSection.innerHTML = `
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+  <div class="collapse-title text-4xl font-bold border-amber-300">
+    Difference Between var, let and const
+  </div>
+  <div class="collapse-content"> 
+    <p>tabindex="0" attribute is necessary to make the div focusable</p>
+  </div>
+</div>
+    `;
+};
+blogInfo();
