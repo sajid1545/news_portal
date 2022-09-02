@@ -20,14 +20,13 @@ let displayCategories = async () => {
 	let categoriesContainer = document.getElementById('categories-container');
 
 	categories.forEach((category) => {
-		console.log(category);
 		let categoryDiv = document.createElement('div');
 		let categoryLink = document.createElement('a');
 
 		categoryDiv.classList.add('cursor-pointer');
 		categoryLink.classList.add('link', 'link-hover');
 		categoryLink.innerHTML = `
-        <div onclick="loadCategoriesDataById(${category.category_id})">
+        <div onclick="(${category.category_id})">
         ${category.category_name}
         </div>
         
@@ -39,10 +38,10 @@ let displayCategories = async () => {
 };
 displayCategories();
 
-// loading categories data from https://openapi.programming-hero.com/api/news/${news_id}
+// loading categories data from https://openapi.programming-hero.com/api/news/category/{category_id}
 
-let loadCategoriesDataById = (category_id) => {
-	let url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
+let loadCategoriesDataById = () => {
+	let url = `https://openapi.programming-hero.com/api/news/category/05`;
 
 	fetch(url)
 		.then((res) => res.json())
@@ -56,7 +55,6 @@ let displayCategoriesNews = (news) => {
 	let displayNewsContainer = document.getElementById('display-news-container');
 	news.forEach((newsItem) => {
 		console.log(newsItem);
-
 		let newsDiv = document.createElement('div');
 		newsDiv.innerHTML = `
         <div class="card flex flex-row   bg-white shadow-xl my-5 ">
@@ -68,8 +66,28 @@ let displayCategoriesNews = (news) => {
   <p>${newsItem.details.length > 20 ? newsItem.details.slice(200, 400) + '...' : newsItem.details}
     </p>  
 
-    <div>
     
+    <div class="grid grid-cols-3 items-center text-center mt-3">
+
+        <div class="flex gap-5 items-center">
+            <div>
+            <img src=" ${newsItem.author.img}" class="w-10 rounded-full">
+            </div>
+            <div>
+            <h1>${newsItem.author ? newsItem.author.name : 'Author not found'}</h1>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="font-bold text-black text-lg">${
+							newsItem.total_view ? newsItem.total_view : 'Total View Not Found'
+						}M</h1>
+        </div>
+
+        <div>
+        <button class="btn btn-outline btn-accent">See More</button>
+        </div>
+
     </div>
     
 </div>
@@ -78,3 +96,5 @@ let displayCategoriesNews = (news) => {
 		displayNewsContainer.appendChild(newsDiv);
 	});
 };
+
+loadCategoriesDataById();
