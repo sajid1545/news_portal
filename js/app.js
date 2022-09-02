@@ -53,17 +53,21 @@ let loadCategoriesDataById = (id) => {
 		});
 };
 
+// displaying new in web page
+
 let displayCategoriesNews = async (news) => {
 	let displayNewsContainer = document.getElementById('display-news-container');
 	displayNewsContainer.innerHTML = '';
-
-	console.log(news);
 
 	// total number of news available for each categories
 
 	let totalNumberOfNews = document.getElementById('total-categories-item');
 	totalNumberOfNews.classList.add('bg-white', 'text-3xl', 'text-black', 'text-center');
-	totalNumberOfNews.innerHTML = `${news.length} items found for category`;
+	totalNumberOfNews.innerHTML = `
+    <div class=" p-5">
+    ${news.length} items found for category
+    </div>
+    `;
 
 	news.forEach((newsItem) => {
 		let newsDiv = document.createElement('div');
@@ -95,7 +99,7 @@ let displayCategoriesNews = async (news) => {
 	        </div>
 
 	        <div>
-	        <button class="btn btn-outline btn-accent">See More</button>
+            <label for="my-modal-3" class="btn modal-button btn-outline btn-accent">See More</label>
 	        </div>
 
 	    </div>
@@ -106,3 +110,5 @@ let displayCategoriesNews = async (news) => {
 		displayNewsContainer.appendChild(newsDiv);
 	});
 };
+
+// loading newsDetails
