@@ -64,10 +64,9 @@ let displayCategoriesNews = async (news) => {
 	// total number of news available for each categories
 
 	let totalNumberOfNews = document.getElementById('total-categories-item');
-	totalNumberOfNews.classList.add('bg-white', 'text-2xl', 'text-black', 'text-center');
 	totalNumberOfNews.innerHTML = `
     <div class="p-3 my-10">
-    ${news.length} items found for category
+    ${news.length} items available in this  category
     </div>
     `;
 
@@ -157,7 +156,12 @@ let displayingNewsDetail = (details) => {
     <figure><img src="${details.image_url}" alt="Album" style="width: 100%; height: 100%;"></figure>
     <h3 class="text-lg font-bold mt-4">${details.title}</h3>
         <p class="py-4">${details.details}
-        </p>
+    <p class="py-4 text-center"> Author: <img src=" ${details.author.img}" class="w-10 rounded-full block mx-auto">
+    </p>
+    <p class="text-yellow-400 text-center">
+    ${details.author.name}
+    </p>
+    
     `;
 };
 
