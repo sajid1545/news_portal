@@ -101,9 +101,9 @@ let displayCategoriesNews = async (news) => {
 	                        <div>
 	                        <h1>${
 														newsItem.author.name === null
-															? 'No author'
+															? 'Author Not found'
 															: newsItem.author.name === ''
-															? 'No author'
+															? 'Author Not found'
 															: newsItem.author.name
 													}
                             </h1>
@@ -116,8 +116,8 @@ let displayCategoriesNews = async (news) => {
 													}</h1>
 	                    </div>
 
-	                    <div>
-                        <label for="my-modal-3" class="btn modal-button btn-outline btn-accent">See More</label>
+	                    <div onclick="newModalNewDetail('${newsItem._id}')">
+                        <label for="my-modal-3" class="btn modal-button btn-outline btn-accent">Read More</label>
 	                    </div>
 
 	                </div>
@@ -129,4 +129,29 @@ let displayCategoriesNews = async (news) => {
 	});
 };
 
-// loading newsDetails
+// loading news details fo MODAL
+
+let newModalNewDetail = async (news_id) => {
+	let url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+	try {
+		let response = await fetch(url);
+		let data = await response.json();
+		displayingNewsDetail(data.data[0]);
+	} catch (e) {
+		console.log(e);
+	}
+};
+// newModalNewDetail();
+
+// displaying details of news
+
+let displayingNewsDetail = (details) => {
+	let newsDetailsInModal = document.getElementById('modal-news-details');
+	newsDetailsInModal.innerHTML = '';
+	newsDetailsInModal.innerHTML = `
+    <figure><img src="${details.image_url}" alt="Album" style="width: 100%; height: 100%;"></figure>
+    <h3 class="text-lg font-bold mt-4">${details.title}</h3>
+        <p class="py-4">${details.details}
+        </p>
+    `;
+};
