@@ -113,10 +113,16 @@ let displayCategoriesNews = async (news, name) => {
 	                        </div>
 	                    </div>
 
-	                    <div>
-	                        <h1 class="font-bold text-black text-lg">${
-														newsItem.total_view ? newsItem.total_view + 'M' : 'Total View Not Found'
-													}</h1>
+	                    <div class="flex gap-2 justify-center" >
+							<div>
+							<i class="fa-solid fa-eye"></i>
+							</div>
+	                        <div>
+							<h1 class="font-bold text-black text-lg">${
+								newsItem.total_view ? newsItem.total_view + 'M' : 'Total View Not Found'
+							}
+							</h1>
+							</div>
 	                    </div>
 
 	                    <div onclick="newModalNewDetail('${newsItem._id}')">
