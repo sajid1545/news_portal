@@ -77,7 +77,7 @@ let displayCategoriesNews = async (news, name) => {
 	news.forEach((newsItem) => {
 		let newsDiv = document.createElement('div');
 		newsDiv.innerHTML = `
-	        <div class="card flex sm:flex-row p-4 bg-white shadow-xl my-5 ">
+	        <div class="card flex sm:flex-row p-4 bg-white shadow-xl my-5 hover:shadow-sky-600 hover:duration-150 mb-10 ">
 	            <figure><img src="${
 								newsItem.thumbnail_url
 							}" alt="Album" style="width: 100%; height: 100%;"></figure>
@@ -155,7 +155,7 @@ let newModalNewDetail = async (news_id) => {
 	}
 };
 
-// displaying details of news
+// displaying details of news in modal
 
 let displayingNewsDetail = (details) => {
 	let newsDetailsInModal = document.getElementById('modal-news-details');
