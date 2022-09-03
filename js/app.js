@@ -17,13 +17,14 @@ let displayCategories = async () => {
 	let categories = await loadCategories();
 	let categoriesContainer = document.getElementById('categories-container');
 	// categoriesContainer.innerHTML = '';
-
+	console.log();
+	loadCategoriesDataById('01', categories[0].category_name);
 	categories.forEach((category) => {
 		let categoryDiv = document.createElement('div');
 		let categoryLink = document.createElement('a');
 		categoryDiv.classList.add('cursor-pointer');
 		categoryLink.classList.add('link', 'link-hover');
-		loadCategoriesDataById('08', category.category_name);
+
 		categoryLink.innerHTML = `
         <div onclick="loadCategoriesDataById('${category.category_id}', '${category.category_name}')">
 
