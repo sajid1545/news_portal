@@ -40,17 +40,18 @@ displayCategories();
 // loading categories data from https://openapi.programming-hero.com/api/news/category/{category_id}
 // loading categories data from https://openapi.programming-hero.com/api/news/category/01
 
-let loadCategoriesDataById = (id, name) => {
+let loadCategoriesDataById = async (id, name) => {
 	toggleLoader(true);
 
 	let url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
-	fetch(url)
-		.then((res) => res.json())
-		.then((data) => displayCategoriesNews(data.data, name))
-		.catch((error) => {
-			console.log(error);
-		});
+	try {
+		let response = await fetch(url);
+		let data = await response.json();
+		return displayCategoriesNews(data.data, name);
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 // displaying news in web page
@@ -113,15 +114,17 @@ let displayCategoriesNews = async (news, name) => {
 	                        </div>
 	                    </div>
 
-	                    <div class="flex gap-2 justify-center" >
+	                    <div class="flex gap-2 justify-center items-center" >
+
 							<div>
 							<i class="fa-solid fa-eye"></i>
 							</div>
+
 	                        <div>
 							<h1 class="font-bold text-black text-lg">${
 								newsItem.total_view ? newsItem.total_view + 'M' : 'Total View Not Found'
-							}
-							</h1>
+							}</h1>
+							
 							</div>
 	                    </div>
 
