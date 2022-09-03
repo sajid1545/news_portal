@@ -101,10 +101,12 @@ let displayCategoriesNews = async (news, name) => {
 
 	                    <div class="flex justify-center gap-5 items-center">
 	                        <div>
-	                        <img src=" ${newsItem.author.img}" class="w-10 rounded-full">
+	                        <img src=" ${
+														newsItem.author.img
+													}" class="w-16 rounded-full ring-4 ring-green-500 ring-offset-2">
 	                        </div>
 	                        <div>
-	                        <h1>${
+	                        <h1 class="text-lg text-green-500 font-bold uppercase">${
 														newsItem.author.name === null
 															? 'Author Not found'
 															: newsItem.author.name === ''
