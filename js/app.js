@@ -23,6 +23,7 @@ let displayCategories = async () => {
 		let categoryLink = document.createElement('a');
 		categoryDiv.classList.add('cursor-pointer');
 		categoryLink.classList.add('link', 'link-hover');
+		loadCategoriesDataById('08', category.category_name);
 		categoryLink.innerHTML = `
         <div onclick="loadCategoriesDataById('${category.category_id}', '${category.category_name}')">
 
