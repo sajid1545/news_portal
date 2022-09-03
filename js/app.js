@@ -24,7 +24,7 @@ let displayCategories = async () => {
 		categoryDiv.classList.add('cursor-pointer');
 		categoryLink.classList.add('link', 'link-hover');
 		categoryLink.innerHTML = `
-        <div onclick="loadCategoriesDataById('${category.category_id}')">
+        <div onclick="loadCategoriesDataById('${category.category_id}', '${category.category_name}')">
 
         ${category.category_name}
            
@@ -40,14 +40,14 @@ displayCategories();
 // loading categories data from https://openapi.programming-hero.com/api/news/category/{category_id}
 // loading categories data from https://openapi.programming-hero.com/api/news/category/01
 
-let loadCategoriesDataById = (id) => {
+let loadCategoriesDataById = (id, name) => {
 	toggleLoader(true);
 
 	let url = `https://openapi.programming-hero.com/api/news/category/${id}`;
 
 	fetch(url)
 		.then((res) => res.json())
-		.then((data) => displayCategoriesNews(data.data))
+		.then((data) => displayCategoriesNews(data.data, name))
 		.catch((error) => {
 			console.log(error);
 		});
@@ -55,7 +55,7 @@ let loadCategoriesDataById = (id) => {
 
 // displaying news in web page
 
-let displayCategoriesNews = async (news) => {
+let displayCategoriesNews = async (news, name) => {
 	toggleLoader(true);
 
 	let displayNewsContainer = document.getElementById('display-news-container');
@@ -66,7 +66,7 @@ let displayCategoriesNews = async (news) => {
 	let totalNumberOfNews = document.getElementById('total-categories-item');
 	totalNumberOfNews.innerHTML = `
     <div class="p-3 my-10">
-    ${news.length} items available in this category
+    ${news.length} items available in ${name} category
     </div>
     `;
 
@@ -133,7 +133,7 @@ let displayCategoriesNews = async (news) => {
 	});
 };
 
-// loading news details fo MODAL
+// loading news details for MODAL
 
 let newModalNewDetail = async (news_id) => {
 	let url = `https://openapi.programming-hero.com/api/news/${news_id}`;
@@ -145,7 +145,6 @@ let newModalNewDetail = async (news_id) => {
 		console.log(e);
 	}
 };
-// newModalNewDetail();
 
 // displaying details of news
 
