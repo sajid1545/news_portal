@@ -81,7 +81,7 @@ let displayCategoriesNews = async (news, name) => {
 	        <div class="card flex sm:flex-row p-4 bg-white shadow-xl my-5 hover:shadow-sky-600 hover:duration-150 mb-10 ">
 	            <figure><img src="${
 								newsItem.thumbnail_url
-							}" alt="Album" style="width: 100%; height: 100%;"></figure>
+							}" alt="Album" style="width: 300px; height: 300px;"></figure>
 	            <div class="card-body">
 	            <h2 class="card-title text-black font-bold text-2xl">${newsItem.title}</h2>
 	            <p>${
